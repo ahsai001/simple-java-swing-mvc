@@ -22,7 +22,6 @@ public class AddPanel extends JPanel
 
     public void setup()
     {  
-        setLayout(new FlowLayout(FlowLayout.LEADING));
         cinema.movies().attach(moviePanel);
         cinema.theatres().attach(theatrePanel);
         cinema.sessions().attach(sessionPanel);  
@@ -60,13 +59,12 @@ public class AddPanel extends JPanel
         private void setup()
         {
             setBorder(BorderFactory.createTitledBorder("Movie"));
-            setLayout(new FlowLayout(FlowLayout.LEADING));
+            setLayout(new GridLayout(4,3));
             button1.addActionListener(new SetListener());
         }
 
         private void build()
         {
-           setLayout(new GridLayout(4,3));
            add(movie);
            add(movieName);
            add(cost);
@@ -117,14 +115,13 @@ public class AddPanel extends JPanel
         private void setup()
         {
             setBorder(BorderFactory.createTitledBorder("Theatre"));
-            setLayout(new FlowLayout(FlowLayout.LEADING));
+            setLayout(new GridLayout(5,4));
             button1.addActionListener(new SetListener());  
             
         }
 
         private void build()
         {
-            setLayout(new GridLayout(5,4));
             add(theatre);
             add(theatreName);
             add(goldSeats);
@@ -139,8 +136,7 @@ public class AddPanel extends JPanel
         public void update()
         {
             Theatre lastTheatre = theatres.find(theatres.size());
-            theatreInfo.setText("sukses");
-            //theatreInfo.setText(lastTheatre.getName() + " " + lastTheatre.getId() + " " + lastTheatre.goldSeats() + " " + lastTheatre.regularSeats());
+            theatreInfo.setText(lastTheatre.getName() + " " + lastTheatre.getId() + " " + lastTheatre.goldSeats() + " " + lastTheatre.regularSeats());
         }
 
         private class SetListener implements ActionListener
@@ -188,12 +184,12 @@ public class AddPanel extends JPanel
         private void setup()
         {
             setBorder(BorderFactory.createTitledBorder("Session"));
+            setLayout(new GridLayout(8,7));
             button1.addActionListener(new SetListener());             
         }
 
         private void build()
         {
-            setLayout(new GridLayout(8,7));
             add(session);
             add(sessionName);
             add(movieId);

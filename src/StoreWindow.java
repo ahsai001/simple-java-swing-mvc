@@ -11,6 +11,7 @@ public class StoreWindow extends JFrame
     }
     private void setup()
     {   setSize(500, 400);
+        //setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);    
     } 
     private void build()
